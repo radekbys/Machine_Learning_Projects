@@ -5,10 +5,10 @@ import mlflow
 import tensorflow as tf
 import keras
 
-# configure mlflow for saving experiments
-mlflow.set_tracking_uri("http://localhost:5000")
-mlflow.set_experiment(experiment_name="keras_diabetes_test_experiment")
-mlflow.autolog()
+# # configure mlflow for saving experiments
+# mlflow.set_tracking_uri("http://localhost:5000")
+# mlflow.set_experiment(experiment_name="keras_diabetes_test_experiment")
+# mlflow.autolog()
 
 
 # Preparation of data
@@ -41,19 +41,24 @@ y_train = tf.convert_to_tensor(value=y_train)
 X_test = tf.convert_to_tensor(X_test)
 y_test = tf.convert_to_tensor(value=y_test)
 
+# # step function - doesn't work
+# def step_activation(x):
+#     return tf.where(x > 0.1, tf.ones_like(x), tf.zeros_like(x))
 
 # creating model and training using nvidia GPU
 model = keras.Sequential(
     [
         keras.layers.Dense(10, activation="relu"),
-        keras.layers.Dense(50, activation="relu"),
-        keras.layers.Dense(5),
+        keras.layers.Dense(200, activation="relu"),
+        keras.layers.Dense(5, activation="sigmoid"),
     ]
 )
 model.compile(
-    optimizer="adam", loss=keras.losses.binary_crossentropy, metrics=["accuracy"]
+    optimizer="adam", loss=keras.losses.categorical_crossentropy, metrics=["accuracy"]
 )
 with tf.device("/GPU:0"):
     model.fit(
-        X_train, y_train, epochs=60, batch_size=2, validation_data=(X_test, y_test)
+        X_train, y_train, epochs=50, batch_size=4, validation_data=(X_test, y_test)
     )
+
+# print(model.predict(X))
