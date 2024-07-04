@@ -2,7 +2,6 @@ import pandas as pd
 import tensorflow as tf
 from sklearn import datasets
 from sklearn.model_selection import train_test_split
-from tensorflow import keras
 
 from save_model_and_score import save
 
@@ -47,19 +46,18 @@ X_test = tf.convert_to_tensor(X_test)
 y_test = tf.convert_to_tensor(y_test)
 
 # Define the model
-
-model = keras.Sequential(
+model = tf.keras.Sequential(
     [
-        keras.layers.Dense(10, activation="relu"),
-        keras.layers.Dense(100, activation="relu"),
-        keras.layers.Dense(2, activation="sigmoid")
+        tf.keras.layers.Dense(10, activation="relu"),
+        tf.keras.layers.Dense(100, activation="relu"),
+        tf.keras.layers.Dense(2, activation="sigmoid")
     ]
 )
 
 # Compile the model
 model.compile(
     optimizer="adam",
-    loss=keras.losses.CategoricalCrossentropy(),
+    loss=tf.keras.losses.CategoricalCrossentropy(),
     metrics=["accuracy"]
 )
 
