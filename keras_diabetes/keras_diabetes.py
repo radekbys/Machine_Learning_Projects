@@ -58,7 +58,7 @@ model.compile(
 )
 with tf.device("/GPU:0"):
     model.fit(
-        X_train, y_train, epochs=50, batch_size=4, validation_data=(X_test, y_test)
+        X_train, y_train, epochs=1000, batch_size=32, validation_data=(X_test, y_test)
     )
 
-# print(model.predict(X))
+print(model.predict(X))
