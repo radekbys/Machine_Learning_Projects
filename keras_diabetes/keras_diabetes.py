@@ -12,18 +12,6 @@ y_raw = diabetes_dataset["target"]
 
 # Create labels for glucose levels
 y_array = []
-# for glucose in y_raw:
-#     if glucose < 54:
-#         y_array.append("severe hypoglycemia")
-#     elif glucose < 70:
-#         y_array.append("hypoglycemia")
-#     elif glucose < 140:
-#         y_array.append("proper glucose level")
-#     elif glucose < 200:
-#         y_array.append("low glucose tolerance")
-#     else:
-#         y_array.append("diabetes")
-
 for glucose in y_raw:
     if glucose < 200:
         y_array.append("not_diabetes")
