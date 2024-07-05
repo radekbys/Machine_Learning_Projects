@@ -2,7 +2,6 @@ import pandas as pd
 import tensorflow as tf
 from sklearn import datasets
 from sklearn.model_selection import train_test_split
-
 from save_model_and_score import save
 
 # Preparation of data
