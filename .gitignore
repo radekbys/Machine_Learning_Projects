@@ -1,2 +1,4 @@
 .venv/
+handwritten_digits_recognition/dataset/
 mlruns/
+prepared_data.csv
