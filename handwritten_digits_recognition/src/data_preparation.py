@@ -7,7 +7,7 @@ import pandas as pd
 
 array_of_converted_images = []
 
-for subdir, dirs, files in os.walk('/mnt/e/Datasets/Handwritten_numbers'):
+for subdir, dirs, files in os.walk('/home/radekbys/Datasets/Handwritten_numbers'):
     for file in files:
         # extracting filepath and digit represented by the image
         file_path = os.path.join(subdir, file)
@@ -37,4 +37,4 @@ df = df.join(dummies)  # adding class columns
 df = df.sample(frac=1)  # shuffling data
 
 # saving data to csv
-df.to_csv('/mnt/e/Datasets/Handwritten_numbers_prepared_data.csv', index=False)
+df.to_csv('/home/radekbys/Datasets/Handwritten_numbers_prepared_data.csv', index=False)
