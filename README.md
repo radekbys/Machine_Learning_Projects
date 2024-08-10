@@ -1,4 +1,4 @@
-This is repository contaigning various projects and scripts regarding machine learning.
+This is repository containing various projects and scripts regarding machine learning.
 
 Contents:
 - environment_tests - folder containing short scripts which can be used to test the environment
