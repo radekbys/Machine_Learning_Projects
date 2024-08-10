@@ -1,1 +1,0 @@
-dataset for this experiment can be found at https://www.kaggle.com/datasets/olafkrastovski/handwritten-digits-0-9

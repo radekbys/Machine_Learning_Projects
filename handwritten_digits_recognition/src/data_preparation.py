@@ -1,13 +1,14 @@
 # Before starting the project input data needs to be reduced, and converted to file format
 
 import os
+from pathlib import Path
 
 import cv2
 import pandas as pd
 
 array_of_converted_images = []
 
-for subdir, dirs, files in os.walk('/home/radekbys/Datasets/Handwritten_numbers'):
+for subdir, dirs, files in os.walk(Path.home()/'Datasets/Handwritten_numbers'):
     for file in files:
         # extracting filepath and digit represented by the image
         file_path = os.path.join(subdir, file)
@@ -37,4 +38,4 @@ df = df.join(dummies)  # adding class columns
 df = df.sample(frac=1)  # shuffling data
 
 # saving data to csv
-df.to_csv('/home/radekbys/Datasets/Handwritten_numbers_prepared_data.csv', index=False)
+df.to_csv(Path.home()/'Datasets/Handwritten_numbers_prepared_data.csv', index=False)
