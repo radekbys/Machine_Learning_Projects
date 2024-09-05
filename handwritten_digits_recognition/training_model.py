@@ -39,7 +39,7 @@ model = keras.Sequential(
     [
         tf.keras.layers.Dense(504, activation="relu"),
         tf.keras.layers.Dense(200, activation="relu"),
-        tf.keras.layers.Dense(10, activation="sigmoid"),
+        tf.keras.layers.Dense(10, activation="softmax"),
     ]
 )
 
@@ -51,7 +51,7 @@ model.compile(
 )
 
 #number of epochs
-EPOCHS = 50
+EPOCHS = 200
 
 # Train the model using GPU if available
 with tf.device("/GPU:0"):
